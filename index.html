@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hacker King | Syber Academy</title>
+<meta name="description" content="Hacker King Syber Academy - Muhammad Jameer" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; overflow-x: hidden; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #000;
+    color: #d0ffd0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,255,102,0.08), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(0,255,102,0.06), transparent 40%);
+  }
+  header {
+    padding: 18px 16px;
+    text-align: center;
+    border-bottom: 1px solid #0f3;
+    background: linear-gradient(180deg, #001a0a, #000);
+    box-shadow: 0 0 20px rgba(0,255,102,0.15);
+  }
+  header h1 {
+    font-size: 1.5rem;
+    color: #0f6;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0,255,102,0.7);
+  }
+  header p {
+    font-size: 0.78rem;
+    color: #6c9;
+    margin-top: 4px;
+  }
+  main {
+    flex: 1;
+    padding: 20px 16px;
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .card {
+    background: #050d08;
+    border: 1px solid #0f3;
+    border-radius: 14px;
+    padding: 20px 16px;
+    box-shadow: 0 0 25px rgba(0,255,102,0.12);
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #0f6;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: #8fc;
+    margin-bottom: 6px;
+  }
+  input[type="tel"], input[type="text"] {
+    width: 100%;
+    padding: 13px 14px;
+    background: #000;
+    border: 1px solid #0f3;
+    border-radius: 10px;
+    color: #0f6;
+    font-size: 1rem;
+    outline: none;
+    letter-spacing: 1px;
+    transition: 0.2s;
+  }
+  input:focus {
+    border-color: #0f6;
+    box-shadow: 0 0 12px rgba(0,255,102,0.4);
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  .btn-main {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+    background: linear-gradient(90deg, #0a3, #0f6);
+    color: #000;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  .btn-main:hover { filter: brightness(1.15); }
+  .btn-main:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  #result {
+    margin-top: 18px;
+    display: none;
+  }
+  #result.show { display: block; }
+  .result-box {
+    background: #000;
+    border: 1px dashed #0f3;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.9rem;
+    color: #bfffbf;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-height: 320px;
+    overflow-y: auto;
+    line-height: 1.5;
+  }
+  .btn-copy {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: transparent;
+    border: 1px solid #0f6;
+    color: #0f6;
+    font-size: 0.88rem;
+    width: 100%;
+  }
+  .btn-copy:hover { background: #0f6; color: #000; }
+  .status {
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+  .status.loading { color: #0f6; background: rgba(0,255,102,0.08); }
+  .status.error { color: #ff5555; background: rgba(255,85,85,0.08); border: 1px solid #f55; }
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .links a {
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  .wa { background: #0a3; color: #fff; }
+  .ch { background: #0f6; color: #000; }
+  .links a:hover { filter: brightness(1.2); }
+  footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.78rem;
+    color: #4a7;
+    border-top: 1px solid #0f3;
+    background: #000;
+  }
+  footer span { color: #0f6; font-weight: 600; }
+  @media (max-width: 380px) {
+    header h1 { font-size: 1.25rem; }
+    .links { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>𝐇𝐚𝐜𝐤𝐞𝐫 𝐊𝐢𝐧𝐠</h1>
+  <p>Syber Academy · By 𝐌𝐮𝐡𝐚𝐦𝐦𝐚𝐝 𝐉𝐚𝐦𝐞𝐞𝐫</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>🔍 Search Number</h2>
+    <label for="num">Enter Number (e.g. 03XXXXXXXXX)</label>
+    <input id="num" type="tel" inputmode="numeric" placeholder="03XXXXXXXXX" maxlength="15" autocomplete="off" />
+    <button id="searchBtn" class="btn-main">SEARCH</button>
+
+    <div id="status" class="status" style="display:none;"></div>
+
+    <div id="result">
+      <div class="result-box" id="resultBox"></div>
+      <button class="btn-copy" id="copyBtn">📋 Copy Result</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📞 Connect With Us</h2>
+    <div class="links">
+      <a class="wa" href="https://wa.me/923324904893" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="ch" href="https://whatsapp.com/channel/0029Vb6yrzmId7nLPBWoR41S" target="_blank" rel="noopener">Channel</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Created By <span>Muhammad Jameer Hacker King</span><br>
+  <em>"Nothing is impossible everything is possible."</em>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /*
+   * ============================================================
+   *  IMPORTANT — API CONFIGURATION
+   * ============================================================
+   *  Apni AUTHORIZED API ka endpoint yahan lagao.
+   *  Agar API ko key chahiye to PUBLIC HTML mein KABHI mat daalo.
+   *  Uske liye server-side proxy banao (neeche README mein samjhaya hai).
+   *
+   *  Default: khaali rakha hai taake ghalat claim na ho.
+   * ============================================================
+   */
+  const API_ENDPOINT = "https://ckdatabase.kami99.site/index.php?number=";
+
+  const numInput  = document.getElementById("num");
+  const searchBtn = document.getElementById("searchBtn");
+  const statusEl  = document.getElementById("status");
+  const resultEl  = document.getElementById("result");
+  const resultBox = document.getElementById("resultBox");
+  const copyBtn   = document.getElementById("copyBtn");
+
+  function setStatus(msg, type) {
+    statusEl.textContent = msg;
+    statusEl.className = "status " + (type || "");
+    statusEl.style.display = "block";
+  }
+  function clearStatus() {
+    statusEl.style.display = "none";
+    statusEl.textContent = "";
+  }
+
+  function sanitizeNumber(v) {
+    return (v || "").replace(/[^\d+]/g, "").trim();
+  }
+
+  async function doSearch() {
+    const number = sanitizeNumber(numInput.value);
+
+    if (!number || number.length < 10) {
+      setStatus("❌ Sahi number daalo (kam az kam 10 digits)", "error");
+      return;
+    }
+
+    if (!API_ENDPOINT) {
+      setStatus("⚠️ API endpoint configure nahi hai. Developer se rabta karo.", "error");
+      return;
+    }
+
+    searchBtn.disabled = true;
+    resultEl.classList.remove("show");
+    setStatus("⏳ Searching...", "loading");
+
+    try {
+      const url = API_ENDPOINT + encodeURIComponent(number);
+      const res = await fetch(url, { method: "GET" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+
+      const ct = res.headers.get("content-type") || "";
+      let data;
+      if (ct.includes("application/json")) {
+        data = await res.json();
+        resultBox.textContent = JSON.stringify(data, null, 2);
+      } else {
+        data = await res.text();
+        resultBox.textContent = data || "(empty response)";
+      }
+
+      clearStatus();
+      resultEl.classList.add("show");
+    } catch (err) {
+      setStatus("❌ Error: " + err.message, "error");
+    } finally {
+      searchBtn.disabled = false;
+    }
+  }
+
+  searchBtn.addEventListener("click", doSearch);
+  numInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") doSearch();
+  });
+
+  copyBtn.addEventListener("click", async function () {
+    try {
+      await navigator.clipboard.writeText(resultBox.textContent);
+      copyBtn.textContent = "✅ Copied!";
+      setTimeout(() => (copyBtn.textContent = "📋 Copy Result"), 1500);
+    } catch {
+      copyBtn.textContent = "❌ Copy failed";
+      setTimeout(() => (copyBtn.textContent = "📋 Copy Result"), 1500);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
